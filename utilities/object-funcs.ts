@@ -1,4 +1,6 @@
-export { isObjPopulated, getDeepKeys };
+export { isObjPopulated, getDeepKeys, matchObjKeys };
+
+type MatchObjKeysReturnType = { isValid: boolean; errorFields: string[] };
 
 const isObjPopulated = (obj: any, exceptions?: string[]): boolean => {
 	if (typeof obj !== 'object' || Array.isArray(obj)) throw new TypeError('Argument must be of type object');
@@ -49,4 +51,27 @@ const getDeepKeys = (obj: Record<string, any>) => {
 	}
 
 	return [...new Set(keys)];
+};
+
+const matchObjKeys = <T>(object1: Partial<T>, object2: T, omit?: string[]): MatchObjKeysReturnType => {
+	const object1Keys: string[] = getDeepKeys(object1);
+	const object2Keys: string[] = getDeepKeys(object2);
+	const errors: string[] = [];
+
+	let isValid: boolean = true;
+	const errorFields: string[] = [];
+
+	object2Keys.forEach(obj2key => {
+		const exists = object1Keys.includes(obj2key) || omit?.includes(obj2key);
+
+		if (!exists) {
+			isValid = false;
+			errors.push(`${obj2key}`);
+			errorFields.push(obj2key);
+		}
+	});
+
+	errors.length > 0 && console.warn('Missing fields:', errors);
+
+	return { isValid, errorFields };
 };
