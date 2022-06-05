@@ -1,4 +1,4 @@
-export { isObjPopulated };
+export { isObjPopulated, getDeepKeys };
 
 const isObjPopulated = (obj: any, exceptions?: string[]): boolean => {
 	if (typeof obj !== 'object' || Array.isArray(obj)) throw new TypeError('Argument must be of type object');
@@ -25,4 +25,28 @@ const isObjPopulated = (obj: any, exceptions?: string[]): boolean => {
 
 	// console.log('done');
 	return isPopulated;
+};
+
+const getDeepKeys = (obj: Record<string, any>) => {
+	if (typeof obj !== 'object' || Array.isArray(obj)) throw new TypeError('Argument must be an object');
+
+	let keys: string[] = [];
+
+	for (let key in obj) {
+		keys.push(key);
+
+		if (Array.isArray(obj[key])) {
+			(obj[key] as unknown as Array<any>).forEach(entry => {
+				if (typeof entry === 'object') {
+					keys = [...keys, ...getDeepKeys(entry)];
+				}
+			});
+		}
+
+		if (typeof obj[key] === 'object' && !Array.isArray(obj[key])) {
+			keys = [...keys, ...getDeepKeys(obj[key])];
+		}
+	}
+
+	return [...new Set(keys)];
 };

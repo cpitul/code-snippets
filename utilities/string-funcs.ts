@@ -1,4 +1,4 @@
-export { firstToUpper, generateUrlString };
+export { firstToUpper, generateUrlString, matchStrings };
 
 const firstToUpper = (text: string): string => {
 	if (typeof text !== 'string') throw new TypeError('Argument must be of type string');
@@ -22,4 +22,10 @@ const generateUrlString = (name: string) => {
 		.join('_');
 
 	return newName;
+};
+
+const matchStrings = (str1: string, str2: string) => {
+	if (typeof str1 !== 'string' || typeof str2 !== 'string') throw new TypeError('Arguments must be of type string');
+
+	return (str1.length === str2.length || str2.length > str1.length) && str1 !== str2;
 };
