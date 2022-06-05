@@ -1,4 +1,4 @@
-export { firstToUpper, generateUrlString, matchStrings };
+export { firstToUpper, generateUrlString, matchStrings, parseToken };
 
 const firstToUpper = (text: string): string => {
 	if (typeof text !== 'string') throw new TypeError('Argument must be of type string');
@@ -28,4 +28,15 @@ const matchStrings = (str1: string, str2: string) => {
 	if (typeof str1 !== 'string' || typeof str2 !== 'string') throw new TypeError('Arguments must be of type string');
 
 	return (str1.length === str2.length || str2.length > str1.length) && str1 !== str2;
+};
+
+const parseToken = (token: string) => {
+	if (typeof token !== 'string') throw new TypeError('Argument must be of type string');
+
+	const tokenSplit = token.split(' ');
+
+	return {
+		pre: tokenSplit?.[0],
+		tokenString: tokenSplit?.[1],
+	};
 };
