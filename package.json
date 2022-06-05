@@ -1,5 +1,5 @@
 {
-	"name": "@cpitul/code-snippets",
+	"name": "react-code-snippets",
 	"version": "0.0.1",
 	"description": "A library of code that I use often in my projects",
 	"types": "dist/index.d.ts",
