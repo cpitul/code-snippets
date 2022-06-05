@@ -1,0 +1,25 @@
+{
+  "name": "code-snippets",
+  "version": "0.0.1",
+  "description": "A library of code that I use often in my projects",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cpitul/code-snippets.git"
+  },
+  "keywords": [
+    "helper",
+    "functions",
+    "code",
+    "snippets"
+  ],
+  "author": "KIPRI",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cpitul/code-snippets/issues"
+  },
+  "homepage": "https://github.com/cpitul/code-snippets#readme"
+}
