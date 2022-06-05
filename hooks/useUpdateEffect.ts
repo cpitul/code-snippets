@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react';
 
-export function useUpdateEffect(callback: () => void, dependencies: any[]) {
+export { useUpdateEffect };
+
+function useUpdateEffect(callback: () => void, dependencies: any[]) {
 	const firstRenderRef = useRef(true);
 
 	useEffect(() => {

@@ -3,7 +3,7 @@ import { useCallback, useState, useEffect, Dispatch } from 'react';
 export { useLocalStorage, useSessionStorage };
 
 // LOCAL STORAGE
-function useLocalStorage(key: string, defaultValue: any) {
+function useLocalStorage(key: string, defaultValue: any = '') {
 	return useStorage(key, defaultValue, window.localStorage);
 }
 
