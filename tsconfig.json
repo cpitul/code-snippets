@@ -1,0 +1,35 @@
+{
+	"compilerOptions": {
+		"target": "esnext",
+		"module": "esnext",
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"allowJs": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+		"noEmit": true,
+		"esModuleInterop": true,
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"jsx": "preserve",
+		"incremental": true,
+		"noUnusedLocals": true /* Report errors on unused locals. */,
+		"noUnusedParameters": true /* Report errors on unused parameters. */,
+		"noImplicitReturns": true /* Report error when not all code paths in function return a value. */,
+		"noFallthroughCasesInSwitch": true /* Report errors for fallthrough cases in switch statement. */,
+		"noImplicitAny": true /* Raise error on expressions and declarations with an implied 'any' type. */,
+		"strictNullChecks": true /* Enable strict null checks. */,
+		"strictFunctionTypes": true /* Enable strict checking of function types. */,
+		"strictPropertyInitialization": true /* Enable strict checking of property initialization in classes. */,
+		"noImplicitThis": true /* Raise error on 'this' expressions with an implied 'any' type. */,
+		"baseUrl": "./",
+		"paths": {
+			"@declarations/*": ["declarations/*"],
+			"@hooks/*": ["hooks/*"],
+			"@utils/*": ["utils/*"]
+		}
+	},
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "next.config.js"],
+	"exclude": ["node_modules"]
+}
