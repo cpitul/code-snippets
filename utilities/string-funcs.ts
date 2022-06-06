@@ -1,4 +1,4 @@
-export { firstToUpper, generateUrlString, matchStrings, parseToken };
+export { firstToUpper, generateUrlString, matchStrings, parseToken, matchHoursAscending, parseHourString, isEmail };
 
 const firstToUpper = (text: string): string => {
 	if (typeof text !== 'string') throw new TypeError('Argument must be of type string');
@@ -39,4 +39,45 @@ const parseToken = (token: string) => {
 		pre: tokenSplit?.[0],
 		tokenString: tokenSplit?.[1],
 	};
+};
+
+const parseHourString = (hourString: string): [string, string] => {
+	if (typeof hourString !== 'string') throw new TypeError('Argument must be of type string');
+
+	const hourStringSplit = hourString.split(':');
+
+	const hours = hourStringSplit[0];
+	const minutes = hourStringSplit[1];
+
+	return [hours, minutes];
+};
+
+const matchHoursAscending = (
+	hours1: string,
+	hours2: string,
+): {
+	hours1: boolean;
+	hours2: boolean;
+} => {
+	const [hour1, minute1] = parseHourString(hours1);
+	const [hour2, minute2] = parseHourString(hours2);
+
+	return +hour1 === +hour2 && +minute1 === +minute2
+		? { hours1: true, hours2: true }
+		: +hour1 === +hour2
+		? +minute1 > +minute2
+			? { hours1: true, hours2: false }
+			: { hours1: false, hours2: false }
+		: +hour1 > +hour2
+		? { hours1: true, hours2: false }
+		: { hours1: false, hours2: false };
+};
+
+const isEmail = (email: string) => {
+	if (typeof email !== 'string') throw new TypeError('Argument must be of type string');
+
+	const reEmail =
+		/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+	return reEmail.test(email.toLowerCase());
 };
