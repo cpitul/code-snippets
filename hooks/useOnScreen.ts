@@ -6,11 +6,15 @@ function useOnScreen(ref: Element, rootMargin: string = '0px') {
 	const [isVisible, setIsVisible] = useState(false);
 
 	useEffect(() => {
-		if (ref == null) return;
+		if (!ref) return;
+
 		const observer = new IntersectionObserver(([entry]) => setIsVisible(entry.isIntersecting), { rootMargin });
+
 		observer.observe(ref);
+
 		return () => {
-			if (ref == null) return;
+			if (!ref) return;
+
 			observer.unobserve(ref);
 		};
 	}, [ref, rootMargin]);

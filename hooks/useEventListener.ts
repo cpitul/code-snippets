@@ -11,7 +11,7 @@ function useEventListener(eventType: string, callback: (e: Event) => void, eleme
 	}, [callback]);
 
 	useEffect(() => {
-		if (element == null) return;
+		if (!element) return;
 
 		const handler = (e: Event) => callbackRef.current(e);
 
