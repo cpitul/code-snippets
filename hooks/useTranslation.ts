@@ -11,8 +11,8 @@ function useTranslation(translations: Translations) {
 		const keys = key.split('.');
 
 		return (
-			getNestedTranslation(language, keys, translations) ??
-			getNestedTranslation(fallbackLanguage, keys, translations) ??
+			getNestedTranslation(language ?? '', keys, translations) ??
+			getNestedTranslation(fallbackLanguage ?? '', keys, translations) ??
 			key
 		);
 	};

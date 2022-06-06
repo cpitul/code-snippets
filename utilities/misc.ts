@@ -3,7 +3,9 @@
 
 import { useEffect } from 'react';
 
-export { closeWithEsc };
+export { matchDarkMode, closeWithEsc };
+
+const matchDarkMode = '(prefers-color-scheme: dark)';
 
 const closeWithEsc = (handleClose: Function) => {
 	useEffect((): (() => void) => {

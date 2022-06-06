@@ -1,9 +1,9 @@
 import { BaseElementType } from '@declarations/types';
-import { useEffect, useRef } from 'react';
+import { ChangeEventHandler, useEffect, useRef } from 'react';
 
 export { useEventListener };
 
-function useEventListener(eventType: string, callback: (e: Event) => void, element: BaseElementType = window) {
+function useEventListener(eventType: string, callback: ChangeEventHandler, element: BaseElementType = window) {
 	const callbackRef = useRef<Function>(callback);
 
 	useEffect(() => {
