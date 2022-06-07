@@ -6,24 +6,31 @@ const isObjPopulated = (obj: any, exceptions?: string[]): boolean => {
 	let isPopulated = true;
 
 	for (const key in obj) {
-		const objKeys = typeof obj[key] === 'object' && !Array.isArray(obj[key]) && Object.keys(obj[key] ?? {});
+		const nestedObj = obj?.[key];
+		const nestedObjKeys = typeof obj[key] === 'object' && !Array.isArray(obj[key]) && Object.keys(obj[key] ?? {});
 
-		if (objKeys && objKeys.length > 0) {
-			const nestedObj = obj[key];
+		if (nestedObjKeys && nestedObjKeys.length > 0) {
+			for (let i = 0; i < nestedObjKeys.length; i++) {
+				const nestedObjKey = String(nestedObjKeys[i]);
+				const value = nestedObj[nestedObjKey];
 
-			if (nestedObj) {
-				for (let i = 0; i < objKeys.length; i++) {
-					if (!nestedObj?.[objKeys?.[i]] || nestedObj?.[objKeys?.[i]]?.length === 0 || nestedObj?.[objKeys?.[i]] === '') {
-						!exceptions?.some(field => field === objKeys[i]) && (isPopulated = false);
+				if (!value || value?.length === 0 || value === '') {
+					const keyIsInException = exceptions?.some(field => field === nestedObjKey);
+
+					if (!keyIsInException) {
+						isPopulated = false;
 					}
 				}
 			}
-		} else if (!obj?.[key] || (obj[key] as any).length === 0 || (obj[key] as any) === '') {
-			!exceptions?.some(field => field === key) && (isPopulated = false);
+		} else if (!nestedObj || (nestedObj as any)?.length === 0 || nestedObj === '') {
+			const keyIsInException = exceptions?.some(field => field === key);
+
+			if (!keyIsInException) {
+				isPopulated = false;
+			}
 		}
 	}
 
-	// console.log('done');
 	return isPopulated;
 };
 
