@@ -1,11 +1,12 @@
 {
 	"name": "react-code-snippets",
-	"version": "0.0.11",
+	"version": "0.0.12",
 	"description": "A library of code that I use often in my projects",
 	"types": "dist/index.d.ts",
 	"main": "dist/index.js",
 	"scripts": {
 		"build": "rm -rf dist && tsc",
+		"publish": "npm run build && npm publish",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"repository": {
