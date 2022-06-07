@@ -18,6 +18,7 @@
 		"noUnusedLocals": true /* Report errors on unused locals. */,
 		"noUnusedParameters": true /* Report errors on unused parameters. */,
 		"noImplicitReturns": true /* Report error when not all code paths in function return a value. */,
+		"noImplicitOverride": true /* Report error when a function declaration overrides a non-overriding function. */,
 		"noFallthroughCasesInSwitch": true /* Report errors for fallthrough cases in switch statement. */,
 		"noImplicitAny": true /* Raise error on expressions and declarations with an implied 'any' type. */,
 		"strictNullChecks": true /* Enable strict null checks. */,
@@ -33,5 +34,5 @@
 		}
 	},
 	"include": ["**/*", "**/*"],
-	"exclude": ["node_modules"]
+	"exclude": ["node_modules", "dist"]
 }

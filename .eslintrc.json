@@ -1,8 +1,24 @@
 {
+	"env": {
+		"browser": true,
+		"es2021": true
+	},
+	"extends": ["plugin:react/recommended", "airbnb"],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": "latest",
+		"sourceType": "module"
+	},
+	"plugins": ["react", "@typescript-eslint"],
 	"rules": {
 		"react/display-name": "off",
 		"react-hooks/exhaustive-deps": "warn",
 		"react-hooks/rules-of-hooks": "warn",
+		"import/extensions": [0, "never"],
+		"indent": ["error", "spaces"],
 		"import/no-anonymous-default-export": [
 			"warn",
 			{
@@ -10,7 +26,7 @@
 				"allowArrowFunction": true,
 				"allowAnonymousClass": true,
 				"allowAnonymousFunction": true,
-				"allowCallExpression": true, // The true value here is for backward compatibility
+				"allowCallExpression": true,
 				"allowLiteral": true,
 				"allowObject": true
 			}
