@@ -1,5 +1,3 @@
-export { firstToUpper, generateUrlString, matchStrings, parseToken, matchHoursAscending, parseHourString, isEmail };
-
 const firstToUpper = (text: string): string => {
 	if (typeof text !== 'string') throw new TypeError('Argument must be of type string');
 
@@ -81,3 +79,5 @@ const isEmail = (email: string) => {
 
 	return reEmail.test(email.toLowerCase());
 };
+
+export { firstToUpper, generateUrlString, matchStrings, parseToken, matchHoursAscending, parseHourString, isEmail };

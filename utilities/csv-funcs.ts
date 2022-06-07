@@ -1,10 +1,6 @@
-export { parseCSV };
-export type { DelimiterType, ParseCSVData };
+import { Delimiter, ParseCSVData } from '@declarations/types';
 
-type DelimiterType = ';';
-type ParseCSVData = string | ArrayBuffer;
-
-const parseCSV = (data: ParseCSVData, delimiter: DelimiterType) => {
+const parseCSV = (data: ParseCSVData, delimiter: Delimiter) => {
 	let parseCSV: Array<string[]> = [];
 	let fields: string[] = [];
 
@@ -66,3 +62,5 @@ const parseCSV = (data: ParseCSVData, delimiter: DelimiterType) => {
 
 	return { parsedData, fields };
 };
+
+export { parseCSV };

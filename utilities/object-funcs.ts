@@ -1,6 +1,4 @@
-export { isObjPopulated, getDeepKeys, matchObjKeys };
-
-type MatchObjKeysReturnType = { isValid: boolean; errorFields: string[] };
+import { MatchObjKeysReturnType } from '@declarations/types';
 
 const isObjPopulated = (obj: any, exceptions?: string[]): boolean => {
 	if (typeof obj !== 'object' || Array.isArray(obj)) throw new TypeError('Argument must be of type object');
@@ -75,3 +73,5 @@ const matchObjKeys = <T>(object1: Partial<T>, object2: T, omit?: string[]): Matc
 
 	return { isValid, errorFields };
 };
+
+export { isObjPopulated, getDeepKeys, matchObjKeys };

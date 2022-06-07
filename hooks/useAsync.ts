@@ -1,7 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
 
-export { useAsync };
-
 function useAsync(callback: () => Promise<any>, dependencies: any[] = []) {
 	const [loading, setLoading] = useState<boolean>(true);
 	const [error, setError] = useState<unknown>(null);
@@ -23,3 +21,5 @@ function useAsync(callback: () => Promise<any>, dependencies: any[] = []) {
 
 	return { loading, error, value };
 }
+
+export { useAsync };

@@ -1,15 +1,3 @@
-export {
-	formatDate,
-	getHM,
-	isSameDate,
-	isBetweenDates,
-	isInTheFuture,
-	isLeapYear,
-	setToLastDate,
-	getNoOfDaysInMonth,
-	incrementDateBy,
-};
-
 const formatDate = (date: Date | number | undefined, noYear?: boolean): string => {
 	const dateToParse = typeof date === 'number' ? new Date(date) : date;
 
@@ -109,4 +97,16 @@ const incrementDateBy = (date: Date | number, incrementBy: number) => {
 		: date.setDate(calendarDateSelectedDate);
 
 	return date;
+};
+
+export {
+	formatDate,
+	getHM,
+	isSameDate,
+	isBetweenDates,
+	isInTheFuture,
+	isLeapYear,
+	setToLastDate,
+	getNoOfDaysInMonth,
+	incrementDateBy,
 };

@@ -1,8 +1,7 @@
-import { UseEffectCb } from '@declarations/types';
-import { useEffect } from 'react';
+import { EffectCallback, useEffect } from 'react';
 
-export { useEffectOnce };
-
-function useEffectOnce(cb: UseEffectCb) {
+function useEffectOnce(cb: EffectCallback) {
 	useEffect(cb, []);
 }
+
+export { useEffectOnce };

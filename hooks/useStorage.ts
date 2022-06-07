@@ -1,7 +1,5 @@
 import { useCallback, useState, useEffect, Dispatch, SetStateAction } from 'react';
 
-export { useLocalStorage, useSessionStorage };
-
 // LOCAL STORAGE
 function useLocalStorage<T>(key: string, defaultValue: T) {
 	return useStorage<T>(key, defaultValue, window.localStorage);
@@ -36,3 +34,5 @@ function useStorage<T>(key: string, defaultValue: T, storageObject: Storage) {
 
 	return [value, setValue, remove] as [T | undefined, Dispatch<SetStateAction<T>>, () => void];
 }
+
+export { useLocalStorage, useSessionStorage };

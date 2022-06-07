@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
 
-export { useOnScreen };
-
 function useOnScreen(ref: Element, rootMargin: string = '0px') {
 	const [isVisible, setIsVisible] = useState(false);
 
@@ -21,3 +19,5 @@ function useOnScreen(ref: Element, rootMargin: string = '0px') {
 
 	return isVisible;
 }
+
+export { useOnScreen };

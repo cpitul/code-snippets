@@ -1,7 +1,5 @@
 import { useAsync } from './useAsync';
 
-export { useScript };
-
 function useScript(url: string) {
 	return useAsync(() => {
 		const script = document.createElement('script');
@@ -15,3 +13,5 @@ function useScript(url: string) {
 		});
 	}, [url]);
 }
+
+export { useScript };

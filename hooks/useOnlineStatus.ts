@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { useEventListener } from './useEventListener';
 
-export { useOnlineStatus };
-
 function useOnlineStatus() {
 	const [online, setOnline] = useState<boolean>(navigator.onLine);
 
@@ -11,3 +9,5 @@ function useOnlineStatus() {
 
 	return online;
 }
+
+export { useOnlineStatus };

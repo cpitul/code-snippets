@@ -4,8 +4,6 @@ import { useLocalStorage } from './useStorage';
 
 import { matchDarkMode } from '@utilities/misc';
 
-export { useDarkMode };
-
 function useDarkMode(): [boolean, React.Dispatch<any>] {
 	const [darkMode, setDarkMode] = useLocalStorage<boolean>('useDarkMode', false);
 	const prefersDarkMode = useMediaQuery(matchDarkMode);
@@ -29,3 +27,5 @@ function useDarkMode(): [boolean, React.Dispatch<any>] {
 
 	return [enabled, setDarkMode];
 }
+
+export { useDarkMode };

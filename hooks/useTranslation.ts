@@ -1,7 +1,12 @@
 import { RecordKey, Translations } from '@declarations/types';
 import { useLocalStorage } from './useStorage';
 
-export { useTranslation };
+function getNestedTranslation(language: string, keys: string[], translations: Translations) {
+	return keys.reduce((obj, key) => {
+		if (typeof obj === 'string') return obj;
+		return obj?.[key];
+	}, translations[language] as Record<RecordKey, string> | string);
+}
 
 function useTranslation(translations: Translations) {
 	const [language, setLanguage] = useLocalStorage('language', 'en');
@@ -26,9 +31,4 @@ function useTranslation(translations: Translations) {
 	};
 }
 
-function getNestedTranslation(language: string, keys: string[], translations: Translations) {
-	return keys.reduce((obj, key) => {
-		if (typeof obj === 'string') return obj;
-		return obj?.[key];
-	}, translations[language] as Record<RecordKey, string> | string);
-}
+export { useTranslation };

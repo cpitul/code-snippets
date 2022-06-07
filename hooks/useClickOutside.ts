@@ -1,8 +1,6 @@
 import { ChangeEvent } from 'react';
 import { useEventListener } from './useEventListener';
 
-export { useClickOutside };
-
 function useClickOutside(ref: HTMLElement, cb: (e: ChangeEvent) => void) {
 	useEventListener(
 		'click',
@@ -14,3 +12,5 @@ function useClickOutside(ref: HTMLElement, cb: (e: ChangeEvent) => void) {
 		document,
 	);
 }
+
+export { useClickOutside };

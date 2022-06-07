@@ -1,8 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useRenderCount } from './useRenderCount';
 
-export { useDebugInformation };
-
 function useDebugInformation(componentName: string, props: Record<string | number | symbol, any>) {
 	const count = useRenderCount();
 	const changedProps = useRef({});
@@ -32,3 +30,5 @@ function useDebugInformation(componentName: string, props: Record<string | numbe
 
 	return info;
 }
+
+export { useDebugInformation };

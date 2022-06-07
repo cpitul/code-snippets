@@ -1,7 +1,5 @@
 import { useCallback, useRef, useState } from 'react';
 
-export { useStateWithHistory };
-
 function useStateWithHistory(defaultValue: any, { capacity = 10 } = {}) {
 	const [value, setValue] = useState(defaultValue);
 	const historyRef = useRef([value]);
@@ -57,3 +55,5 @@ function useStateWithHistory(defaultValue: any, { capacity = 10 } = {}) {
 		},
 	];
 }
+
+export { useStateWithHistory };

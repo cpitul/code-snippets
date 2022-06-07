@@ -1,5 +1,3 @@
-export { shuffle };
-
 const shuffle = (array: Array<any>) => {
 	if (!array || !Array.isArray(array)) throw new TypeError('Argument must be of type array');
 
@@ -18,3 +16,5 @@ const shuffle = (array: Array<any>) => {
 
 	return array;
 };
+
+export { shuffle };

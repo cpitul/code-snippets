@@ -1,8 +1,6 @@
 import { BaseElementType } from '@declarations/types';
 import { ChangeEventHandler, useEffect, useRef } from 'react';
 
-export { useEventListener };
-
 function useEventListener(eventType: string, callback: ChangeEventHandler, element: BaseElementType = window) {
 	const callbackRef = useRef<Function>(callback);
 
@@ -20,3 +18,5 @@ function useEventListener(eventType: string, callback: ChangeEventHandler, eleme
 		return () => element.removeEventListener(eventType, handler);
 	}, [eventType, element]);
 }
+
+export { useEventListener };

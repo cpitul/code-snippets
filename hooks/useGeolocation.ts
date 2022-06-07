@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 
-export { useGeolocation };
-
 function useGeolocation(options: PositionOptions & { watch?: boolean }) {
 	const [loading, setLoading] = useState<boolean>(true);
 	const [error, setError] = useState<GeolocationPositionError | null>(null);
@@ -27,3 +25,5 @@ function useGeolocation(options: PositionOptions & { watch?: boolean }) {
 
 	return { loading, error, data };
 }
+
+export { useGeolocation };

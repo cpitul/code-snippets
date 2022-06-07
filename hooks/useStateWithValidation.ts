@@ -1,7 +1,5 @@
 import { useState, useCallback } from 'react';
 
-export { useStateWithValidation };
-
 function useStateWithValidation<T>(validationFunc: (value: T) => boolean, initialValue: T) {
 	const [state, setState] = useState<T>(initialValue);
 	const [isValid, setIsValid] = useState<boolean>(() => validationFunc(state));
@@ -18,3 +16,5 @@ function useStateWithValidation<T>(validationFunc: (value: T) => boolean, initia
 
 	return [state, onChange, isValid];
 }
+
+export { useStateWithValidation };

@@ -1,6 +1,8 @@
-export type { BaseElementType, UseEffectCb, RecordKey, Translations };
-
 type RecordKey = string | number | symbol;
 type BaseElementType = Window | Document | HTMLElement | MediaQueryList;
-type UseEffectCb = (() => void) | (() => () => void);
 type Translations = Record<RecordKey, Record<RecordKey, string | Record<RecordKey, string>>>;
+type MatchObjKeysReturnType = { isValid: boolean; errorFields: string[] };
+type Delimiter = ';';
+type ParseCSVData = string | ArrayBuffer;
+
+export type { BaseElementType, RecordKey, Translations, MatchObjKeysReturnType, Delimiter, ParseCSVData };

@@ -3,8 +3,6 @@ import { useEventListener } from './useEventListener';
 
 import { BaseElementType } from '@declarations/types';
 
-export { useHover };
-
 function useHover(ref: BaseElementType) {
 	const [hovered, setHovered] = useState<boolean>(false);
 
@@ -13,3 +11,5 @@ function useHover(ref: BaseElementType) {
 
 	return hovered;
 }
+
+export { useHover };

@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 
-export { useSize };
-
 function useSize(ref: Element) {
 	const [size, setSize] = useState<DOMRectReadOnly | null>(null);
 
@@ -16,3 +14,5 @@ function useSize(ref: Element) {
 
 	return size;
 }
+
+export { useSize };

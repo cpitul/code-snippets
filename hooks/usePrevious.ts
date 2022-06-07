@@ -1,7 +1,5 @@
 import { useRef } from 'react';
 
-export { usePrevious };
-
 function usePrevious(value: any) {
 	const currentRef = useRef(value);
 	const previousRef = useRef<any>();
@@ -13,3 +11,5 @@ function usePrevious(value: any) {
 
 	return previousRef.current;
 }
+
+export { usePrevious };

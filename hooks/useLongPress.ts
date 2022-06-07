@@ -3,8 +3,6 @@ import { useTimeout } from './useTimeout';
 import { useEffectOnce } from './useEffectOnce';
 import { BaseElementType } from '@declarations/types';
 
-export { useLongPress };
-
 function useLongPress(ref: BaseElementType, cb: () => void, { delay = 250 } = {}) {
 	const { reset, clear } = useTimeout(cb, delay);
 	useEffectOnce(clear);
@@ -16,3 +14,5 @@ function useLongPress(ref: BaseElementType, cb: () => void, { delay = 250 } = {}
 	useEventListener('mouseleave', clear, ref);
 	useEventListener('touchend', clear, ref);
 }
+
+export { useLongPress };

@@ -1,7 +1,5 @@
 import { useState } from 'react';
 
-export { useArray };
-
 function useArray<T>(defaultValue: T[] = []) {
 	const [array, setArray] = useState<T[]>(defaultValue);
 
@@ -27,3 +25,5 @@ function useArray<T>(defaultValue: T[] = []) {
 
 	return { array, set: setArray, push, filter, update, remove, clear };
 }
+
+export { useArray };
