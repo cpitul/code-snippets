@@ -12,13 +12,33 @@
 		"ecmaVersion": "latest",
 		"sourceType": "module"
 	},
-	"plugins": ["react", "@typescript-eslint"],
+	"plugins": ["react", "@typescript-eslint", "react-hooks"],
+	"globals": {
+		"NodeJS": true
+	},
 	"rules": {
 		"react/display-name": "off",
 		"react-hooks/exhaustive-deps": "warn",
 		"react-hooks/rules-of-hooks": "warn",
+		"object-curly-newline": "off",
+		"max-len": ["warn", { "code": 120 }],
+		"arrow-parens": "off",
+		"indent": ["error", "tab"],
+		"no-tabs": ["error", { "allowIndentationTabs": true }],
+		"no-unused-expressions": ["warn", { "allowShortCircuit": true }],
+		"no-unused-vars": "warn",
+		"react/function-component-definition": [
+			2,
+			{ "namedComponents": "arrow-function", "unnamedComponents": "arrow-function" }
+		],
+		"react/jsx-filename-extension": ["warn", { "allow": "as-needed", "extensions": [".jsx", ".tsx"] }],
+		"import/prefer-default-export": "off",
 		"import/extensions": [0, "never"],
-		"indent": ["error", "spaces"],
+		"import/resolver": {
+			"node": {
+				"extensions": [".js", ".jsx", ".ts", ".tsx"]
+			}
+		},
 		"import/no-anonymous-default-export": [
 			"warn",
 			{
